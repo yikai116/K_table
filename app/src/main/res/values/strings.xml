@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">K_table</string>
+    <string name="id_hint">请输入教务处账号</string>
+    <string name="psw_hint">请输入教务处密码</string>
+    <string name="showPsw">显示密码</string>
+    <string name="login">登录</string>
+    <string name="forgetPsw">忘记密码？</string>
+    <string name="signUp">新用户注册</string>
+    <string name="serviceClause">服务条款</string>
+</resources>
