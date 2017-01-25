@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/include">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        android:background="@drawable/shape_course_1"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGreyHint"/>
+
+
+
+</LinearLayout>

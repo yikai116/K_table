@@ -12,4 +12,40 @@
     <color name="colorBlue">#4a83e6</color>
     <color name="icon_color">#afc128</color>
     <color name="main_color">#3ba8b6</color>
+
+    <color name="courseBg1_t">#dc8b94</color>
+    <color name="courseBg1">#f87d8a</color>
+    <color name="courseBg1_b">#df7681</color>
+
+    <color name="courseBg2_t">#41c6f3</color>
+    <color name="courseBg2">#01b3ee</color>
+    <color name="courseBg2_b">#0ca4d7</color>
+
+    <color name="courseBg3_t">#45be9e</color>
+    <color name="courseBg3">#13ca9a</color>
+    <color name="courseBg3_b">#1bb88f</color>
+
+    <color name="courseBg4_t">#cca8e7</color>
+    <color name="courseBg4">#ba8adf</color>
+    <color name="courseBg4_b">#aa81ca</color>
+
+    <color name="courseBg5_t">#e09563</color>
+    <color name="courseBg5">#ff8d41</color>
+    <color name="courseBg5_b">#e58443</color>
+
+    <color name="courseBg6_t">#add545</color>
+    <color name="courseBg6">#91c607</color>
+    <color name="courseBg6_b">#87b411</color>
+
+    <color name="courseBg7_t">#ffcc45</color>
+    <color name="courseBg7">#ffba07</color>
+    <color name="courseBg7_b">#e5aa11</color>
+
+    <color name="courseBg8_t">#eb99d2</color>
+    <color name="courseBg8">#e477c3</color>
+    <color name="courseBg8_b">#b16199</color>
+
+    <color name="courseBg9_t">#93b7f9</color>
+    <color name="courseBg9">#6e9ff6</color>
+    <color name="courseBg9_b">#597cba</color>
 </resources>
