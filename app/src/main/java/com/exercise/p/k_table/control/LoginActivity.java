@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity implements MyLoginListener 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("登录");
         initView();
-
     }
 
     public void initView(){
