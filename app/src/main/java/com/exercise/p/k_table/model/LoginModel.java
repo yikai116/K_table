@@ -102,7 +102,7 @@ public class LoginModel {
                 if (line.contains("选课结果列表"))
                     break;
             }
-            Pattern pattern = Pattern.compile("&nbsp|\\s|\"|;");
+            Pattern pattern = Pattern.compile("&nbsp|\\s|\"|;|望江|华西|江安");
             Matcher matcher = pattern.matcher(course_data_string);
             course_data_string = matcher.replaceAll("");
 //            Log.i("Login",course_data_string);
@@ -143,6 +143,14 @@ public class LoginModel {
                 String name = matcher_eachday.group(1);
 //                Log.i("Login",name);
                 if (!name.equals("")) {
+                    Pattern pattern_name = Pattern.compile("_.*?\\((.*?)\\)");
+                    Matcher matcher_name = pattern_name.matcher(name);
+                    if (matcher_name.find()){
+                        String place = "@";
+                        place += matcher_name.group(1);
+                        name = name.substring(0,name.length() - place.length() - 1);
+                        name = name + place;
+                    }
                     courses_temp.add(new Course(name,section,1," ",week));
                 }
                 week++;

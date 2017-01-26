@@ -1,5 +1,8 @@
 package com.exercise.p.k_table.model;
 
+import android.util.Log;
+
+import java.util.Random;
 import java.util.StringTokenizer;
 
 /**
@@ -19,7 +22,8 @@ public class Course {
         this.size = size;
         this.teacher = teacher;
         this.day = day;
-//        this.color = color;
+        this.color = new Random().nextInt(9);
+        Log.i("Course",color + "");
     }
 
     public Course(String s){
@@ -29,6 +33,7 @@ public class Course {
         this.size = Integer.valueOf(stringTokenizer.nextToken());
         this.teacher = stringTokenizer.nextToken();
         this.day = Integer.valueOf(stringTokenizer.nextToken());
+        this.color = Integer.valueOf(stringTokenizer.nextToken());
     }
 
     public String getName() {

@@ -7,65 +7,19 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal">
-        <FrameLayout
-            android:layout_width="0dp"
+
+        <include
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:id="@+id/tab_week1"
-            android:gravity="center"
-            android:text="周一\n01-25"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/tab_week2"
-            android:gravity="center"
-            android:text="周一\n01-25"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/tab_week3"
-            android:gravity="center"
-            android:text="周一\n01-25"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/tab_week4"
-            android:gravity="center"
-            android:text="周一\n01-25"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/tab_week5"
-            android:gravity="center"
-            android:text="周一\n01-25"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/tab_week6"
-            android:gravity="center"
-            android:text="周一\n01-25"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/tab_week7"
-            android:gravity="center"
-            android:text="周一\n01-25"/>
+            android:id="@+id/top_week_include"
+            layout="@layout/fragment_main_top_week_list"/>
 
 
     </LinearLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="@dimen/parting_line"
         android:background="@color/colorGreyHint"/>
 
     <ScrollView
@@ -80,55 +34,74 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <include
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    layout="@layout/fragment_main_side_time_list"/>
+                    android:layout_weight="1">
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        layout="@layout/fragment_main_side_time_list"/>
+
+                </LinearLayout>
+
+
+                <FrameLayout
+                    android:layout_width="@dimen/parting_line"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGreyHint"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="8">
+                android:layout_weight="8"
+                android:orientation="horizontal">
                 <include
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:id="@+id/content_week1"
                     layout="@layout/week_include" />
+
                 <include
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:id="@+id/content_week2"
                     layout="@layout/week_include" />
+
                 <include
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:id="@+id/content_week3"
                     layout="@layout/week_include" />
+
                 <include
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:id="@+id/content_week4"
                     layout="@layout/week_include" />
+
                 <include
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:id="@+id/content_week5"
                     layout="@layout/week_include" />
+
                 <include
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:id="@+id/content_week6"
                     layout="@layout/week_include" />
+
                 <include
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

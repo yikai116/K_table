@@ -30,17 +30,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initActionBar();
-        initTabView();
-        ArrayList<String> coursesString = getIntent().getStringArrayListExtra("courses");
-//        Log.i("Main",coursesString.toString());
-        courses = new ArrayList<>();
 
+        ArrayList<String> coursesString = getIntent().getStringArrayListExtra("courses");
+        courses = new ArrayList<>();
         for (String s : coursesString){
             courses.add(new Course(s));
         }
-//        Log.i("Main",courses.toString());
-//        Toast.makeText(this, Global_Info.getUser_name(), Toast.LENGTH_SHORT).show();
+        initActionBar();
+        initTabView();
+
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
     }
 
     public void initActionBar(){
@@ -49,15 +51,11 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorWhiteBG)));
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setCustomView(R.layout.actionbar_custom_view);
-//        Button button_search = (Button) actionBar.getCustomView().findViewById(R.id.button_search);
-//        button_search.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.setClass(MainActivity.this,SearchActivity.class);
-//                MainActivity.this.startActivity(intent);
-//            }
-//        });
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setLogo(getResources().getDrawable(R.drawable.ic_logo_small));
+
     }
 
     public void initTabView() {

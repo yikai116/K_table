@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:id="@+id/top_week1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <include layout="@layout/fragment_main_top_week_tab"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/top_week2"
+        android:orientation="vertical"
+        android:gravity="center">
+        <include
+            layout="@layout/fragment_main_top_week_tab"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/top_week3"
+        android:orientation="vertical"
+        android:gravity="center">
+        <include layout="@layout/fragment_main_top_week_tab"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/top_week4"
+        android:orientation="vertical"
+        android:gravity="center">
+        <include layout="@layout/fragment_main_top_week_tab"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/top_week5"
+        android:orientation="vertical"
+        android:gravity="center">
+        <include layout="@layout/fragment_main_top_week_tab"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/top_week6"
+        android:orientation="vertical"
+        android:gravity="center">
+        <include layout="@layout/fragment_main_top_week_tab"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/top_week7"
+        android:orientation="vertical"
+        android:gravity="center">
+        <include layout="@layout/fragment_main_top_week_tab"/>
+    </LinearLayout>
+
+
+</LinearLayout>
