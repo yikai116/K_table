@@ -15,5 +15,5 @@
     <string name="tuesday">周二</string>
     <string name="monday">周一</string>
     <string name="default_date">01-25</string>
-    <string name="refresh">刷新</string>
+    <string name="exit">退出</string>
 </resources>

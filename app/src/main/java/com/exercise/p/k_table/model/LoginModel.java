@@ -184,6 +184,7 @@ public class LoginModel {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            Log.i("Login","成功");
             listener.showDialog();
         }
 
@@ -196,9 +197,11 @@ public class LoginModel {
 
         @Override
         protected void onPostExecute(final Boolean success) {
+            Log.i("Login","成功");
             listener.closeDialog();
             if (success) {
-                listener.showCourse(coursesList,user_id,user_psw);
+
+                listener.showCourseData(coursesList,user_id,user_psw);
                 try {
                     MemoryAccess.saveCourseToSD(coursesList);
                 } catch (IOException e) {

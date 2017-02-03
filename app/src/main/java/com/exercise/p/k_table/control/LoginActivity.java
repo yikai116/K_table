@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity implements MyLoginListener 
     }
 
     @Override
-    public void showCourse(ArrayList<Course> arrayList,String id,String psw) {
+    public void showCourseData(ArrayList<Course> arrayList, String id, String psw) {
         Global_Info.setUser_id(id);
         Global_Info.setUser_psw(psw);
         Global_Info.savaInfo(LoginActivity.this);

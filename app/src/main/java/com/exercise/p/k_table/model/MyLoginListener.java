@@ -8,9 +8,9 @@ import java.util.StringTokenizer;
  */
 
 public interface MyLoginListener {
-    public void showDialog();
-    public void closeDialog();
-    public void showCourse(ArrayList<Course> arrayList, String id, String psw);
-    public void showErrorDialog(String notice);
-    public void toastError(String notice);
+    void showDialog();
+    void closeDialog();
+    void showCourseData(ArrayList<Course> arrayList, String id, String psw);
+    void showErrorDialog(String notice);
+    void toastError(String notice);
 }

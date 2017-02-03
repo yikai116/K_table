@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/fragment_main_menu_refresh"
-        android:title="@string/refresh"
-        android:icon="@drawable/ic_actionbar_refresh"
+        android:id="@+id/fragment_main_menu_exit"
+        android:title="@string/exit"
+        android:icon="@drawable/ic_actionbar_exit"
         app:showAsAction="ifRoom"/>
 
 </menu>

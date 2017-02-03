@@ -1,22 +1,31 @@
 package com.exercise.p.k_table.control;
 
 import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Course;
+import com.exercise.p.k_table.model.Global_Info;
+import com.exercise.p.k_table.model.LoginModel;
+import com.exercise.p.k_table.model.MyLoginListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -59,7 +68,7 @@ public class MainFragment extends Fragment{
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        courses = ((MainActivity)context).getCourses();
+        courses = ((MainActivity) context).getCourses();
     }
 
     public void initView(View view){
@@ -180,5 +189,13 @@ public class MainFragment extends Fragment{
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.fragment_main_menu,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.fragment_main_menu_exit){
+            getActivity().finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
