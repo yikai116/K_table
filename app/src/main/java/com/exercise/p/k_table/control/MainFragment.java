@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Course;
@@ -40,11 +39,9 @@ public class MainFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        Toast.makeText(getContext(), "开始，课程表", Toast.LENGTH_SHORT).show();
         View view = inflater.inflate(R.layout.fragment_main, null);
         initView(view);
         showCourse(courses, week_context_layouts);
-        setHasOptionsMenu(true);
         return view;
     }
 
@@ -54,14 +51,10 @@ public class MainFragment extends Fragment{
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        courses = ((MainActivity) context).getCourses();
+//        courses = ((MainActivity) context).getCourses();
+        courses = (ArrayList<Course>) getArguments().getSerializable("courses");
     }
 
     public void initView(View view){
@@ -178,17 +171,4 @@ public class MainFragment extends Fragment{
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.fragment_main_menu,menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.fragment_main_menu_exit){
-            getActivity().finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

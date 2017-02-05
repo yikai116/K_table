@@ -20,19 +20,37 @@
         android:layout_height="@dimen/parting_line"
         android:background="@color/colorGreyHint"/>
 
-    <android.support.v4.app.FragmentTabHost
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tab_host"
-        android:layout_gravity="center">
-
-        <FrameLayout
+        android:orientation="horizontal">
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:id="@+id/tab_content">
-        </FrameLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <include
+                layout="@layout/tab_content"
+                android:id="@+id/tab1"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <include
+                layout="@layout/tab_content"
+                android:id="@+id/tab2"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <include
+                layout="@layout/tab_content"
+                android:id="@+id/tab3"/>
+        </LinearLayout>
 
-    </android.support.v4.app.FragmentTabHost>
+
+    </LinearLayout>
 
 
 

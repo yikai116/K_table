@@ -115,11 +115,14 @@ public class LoginActivity extends AppCompatActivity implements MyLoginListener 
         Global_Info.savaInfo(LoginActivity.this);
         Intent intent = new Intent();
         intent.setClass(LoginActivity.this,MainActivity.class);
-        ArrayList<String> courseString = new ArrayList<>();
-        for (Course course : arrayList){
-            courseString.add(course.toString());
-        }
-        intent.putStringArrayListExtra("courses",courseString);
+//        ArrayList<String> courseString = new ArrayList<>();
+//        for (Course course : arrayList){
+//            courseString.add(course.toString());
+//        }
+//        intent.putStringArrayListExtra("courses",courseString);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("courses",arrayList);
+        intent.putExtra("courses",bundle);
         LoginActivity.this.startActivity(intent);
         SharedPreferences sharedPreferences = getSharedPreferences("IsFirstAndIsLogin",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

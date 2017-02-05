@@ -2,13 +2,14 @@ package com.exercise.p.k_table.model;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.StringTokenizer;
 
 /**
  * Created by p on 2016/10/24.
  */
-public class Course {
+public class Course implements Serializable{
     private String name;
     private int start;
     private int size;

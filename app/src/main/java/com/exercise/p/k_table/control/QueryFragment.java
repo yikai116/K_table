@@ -27,9 +27,4 @@ public class QueryFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        actionBar = ((MainActivity)context).actionBar;
-    }
 }

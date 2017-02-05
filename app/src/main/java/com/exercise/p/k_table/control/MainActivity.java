@@ -2,53 +2,68 @@ package com.exercise.p.k_table.control;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTabHost;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TabHost;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Course;
-import com.exercise.p.k_table.model.Global_Info;
 
 import java.util.ArrayList;
-
+import java.util.zip.Inflater;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private Class fragmentClass[] = {MainFragment.class,MainFragment.class,MainFragment.class,QueryFragment.class};
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+    MainFragment mainFragment;
+    QueryFragment queryFragment;
+    InfoFragment infoFragment;
+    ActionBar actionBar;
 
     ArrayList<Course> courses;
-    ActionBar actionBar;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        actionBar = getSupportActionBar();
-        ArrayList<String> coursesString = getIntent().getStringArrayListExtra("courses");
-        courses = new ArrayList<>();
-        for (String s : coursesString){
-            courses.add(new Course(s));
-        }
+        fragmentManager = getSupportFragmentManager();
+        courses = (ArrayList<Course>) getIntent().getBundleExtra("courses").get("courses");
         initActionBar();
         initTabView();
-
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("courses",courses);
+        setFragment(0,bundle);
     }
 
-    public ArrayList<Course> getCourses() {
-        return courses;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.fragment_main_menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.fragment_main_menu_exit){
+            MainActivity.this.finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public void initActionBar(){
+        actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorWhiteBG)));
         actionBar.setDisplayShowCustomEnabled(true);
@@ -60,46 +75,76 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initTabView() {
-        LayoutInflater layoutInflater = getLayoutInflater();
-        final FragmentTabHost tabHost = (FragmentTabHost) findViewById(R.id.tab_host);
-        tabHost.setup(this, getSupportFragmentManager(), R.id.viewPager);
-        for (int i = 0; i < fragmentClass.length; i++) {
-            View view = layoutInflater.inflate(R.layout.tab_content,null);
-            TabHost.TabSpec tabSpec = tabHost.newTabSpec("" + i).setIndicator(view);
-            tabHost.addTab(tabSpec, fragmentClass[i], null);
-//            View tab_view = tabHost.getTabWidget().getChildTabViewAt(i);
-//            ImageView imageView = (ImageView) tab_view.findViewById(R.id.tab_image);
-//            imageView.setImageResource(resource_normal[i]);
-//            TextView textView = (TextView) tab_view.findViewById(R.id.tab_text);
-//            textView.setText(names[i]);
-//            textView.setTextColor(getColor(R.color.colorGreyHint));
-        }
-//        ImageView imageView = (ImageView) tabHost.getTabWidget().getChildTabViewAt(0)
-//                .findViewById(R.id.tab_image);
-//        imageView.setImageResource(resource_click[0]);
-//        TextView textView = (TextView) tabHost.getTabWidget().getChildTabViewAt(0)
-//                .findViewById(R.id.tab_text);
-//        textView.setTextColor(getColor(R.color.icon_color));
-
-        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+        LinearLayout tab1 = (LinearLayout) findViewById(R.id.tab1);
+        ImageView imageView = (ImageView) tab1.findViewById(R.id.tab_image);
+        TextView textView = (TextView) tab1.findViewById(R.id.tab_text);
+        imageView.setImageResource(R.drawable.ic_tab1);
+        textView.setText("课程表");
+        tab1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTabChanged(String tabId) {
-                int x = Integer.valueOf(tabId);
-                for (int i = 0; i < fragmentClass.length; i++){
-                    View view = tabHost.getTabWidget().getChildTabViewAt(i);
-                    ImageView imageView = (ImageView) view.findViewById(R.id.tab_image);
-                    TextView textView = (TextView) view.findViewById(R.id.tab_text);
-                    if (x != i) {
-//                        imageView.setImageResource(resource_normal[i]);
-                        textView.setTextColor(getColor(R.color.colorGreyHint));
-                    }
-                    else {
-//                        imageView.setImageResource(resource_click[i]);
-                        textView.setTextColor(getColor(R.color.icon_color));
-                    }
-                }
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("courses",courses);
+                setFragment(0,bundle);
             }
         });
+        LinearLayout tab2= (LinearLayout) findViewById(R.id.tab2);
+        imageView = (ImageView) tab2.findViewById(R.id.tab_image);
+        textView = (TextView) tab2.findViewById(R.id.tab_text);
+        imageView.setImageResource(R.drawable.ic_tab2);
+        textView.setText("查询");
+        tab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(1,null);
+            }
+        });
+        LinearLayout tab3 = (LinearLayout) findViewById(R.id.tab3);
+        imageView = (ImageView) tab3.findViewById(R.id.tab_image);
+        textView = (TextView) tab3.findViewById(R.id.tab_text);
+        imageView.setImageResource(R.drawable.ic_login_id);
+        textView.setText("个人");
+        tab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(2,null);
+            }
+        });
+    }
+
+    public void setFragment(int x,Bundle bundle){
+        TextView textView = (TextView) actionBar.getCustomView().findViewById(R.id.actionbar_title);
+        fragmentTransaction = fragmentManager.beginTransaction();
+        switch (x){
+            case 0:
+                if (mainFragment == null){
+                    mainFragment = new MainFragment();
+                    Log.i("MainFragment","new");
+                    mainFragment.setArguments(bundle);
+                }
+                textView.setText("第X周");
+                fragmentTransaction.replace(R.id.viewPager,mainFragment);
+                break;
+            case 1:
+                if (queryFragment == null){
+                    queryFragment = new QueryFragment();
+                    Log.i("QueryFragment","new");
+                    queryFragment.setArguments(bundle);
+                }
+                textView.setText("查询");
+                fragmentTransaction.replace(R.id.viewPager,queryFragment);
+                break;
+            case 2:
+                if (infoFragment == null){
+                    infoFragment = new InfoFragment();
+                    Log.i("InfoFragment","new");
+                    infoFragment.setArguments(bundle);
+                }
+                textView.setText("个人中心");
+                fragmentTransaction.replace(R.id.viewPager,infoFragment);
+                break;
+        }
+        fragmentTransaction.commit();
     }
 
 }

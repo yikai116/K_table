@@ -58,9 +58,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 editor.apply();
             }
             else {
-                ArrayList<String> courses = null;
+                ArrayList<String> coursesString = null;
                 try {
-                    courses = MemoryAccess.read();
+                    coursesString = MemoryAccess.read();
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(WelcomeActivity.this, "文件读取错误", Toast.LENGTH_SHORT).show();
@@ -72,8 +72,13 @@ public class WelcomeActivity extends AppCompatActivity {
                     Toast.makeText(WelcomeActivity.this, "进入主界面", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
                     intent.setClass(WelcomeActivity.this,MainActivity.class);
-                    if (courses!=null)
-                        intent.putStringArrayListExtra("courses",courses);
+                    ArrayList<Course> courses = new ArrayList<>();
+                    for (String courseString : coursesString){
+                        courses.add(new Course(courseString));
+                    }
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("courses",courses);
+                    intent.putExtra("courses",bundle);
                     WelcomeActivity.this.startActivity(intent);
                 }
                 else {
