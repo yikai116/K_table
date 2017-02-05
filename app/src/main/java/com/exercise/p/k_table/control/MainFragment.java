@@ -1,14 +1,9 @@
 package com.exercise.p.k_table.control;
 
-import android.app.ActionBar;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,9 +18,6 @@ import android.widget.Toast;
 
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Course;
-import com.exercise.p.k_table.model.Global_Info;
-import com.exercise.p.k_table.model.LoginModel;
-import com.exercise.p.k_table.model.MyLoginListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -48,6 +40,7 @@ public class MainFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        Toast.makeText(getContext(), "开始，课程表", Toast.LENGTH_SHORT).show();
         View view = inflater.inflate(R.layout.fragment_main, null);
         initView(view);
         showCourse(courses, week_context_layouts);

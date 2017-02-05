@@ -2,6 +2,7 @@ package com.exercise.p.k_table.control;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -23,14 +24,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Class fragmentClass[] = {MainFragment.class,MainFragment.class,MainFragment.class,MainFragment.class};
+    private Class fragmentClass[] = {MainFragment.class,MainFragment.class,MainFragment.class,QueryFragment.class};
 
     ArrayList<Course> courses;
+    ActionBar actionBar;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        actionBar = getSupportActionBar();
         ArrayList<String> coursesString = getIntent().getStringArrayListExtra("courses");
         courses = new ArrayList<>();
         for (String s : coursesString){
@@ -45,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         return courses;
     }
 
+
     public void initActionBar(){
-        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorWhiteBG)));
         actionBar.setDisplayShowCustomEnabled(true);
@@ -55,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setLogo(getResources().getDrawable(R.drawable.ic_logo_small));
-
     }
 
     public void initTabView() {
