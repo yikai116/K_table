@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.exercise.p.k_table.model.Course;
 import com.exercise.p.k_table.model.Global_Info;
-import com.exercise.p.k_table.model.LoginModel;
+import com.exercise.p.k_table.model.CourseLoginModel;
 import com.exercise.p.k_table.model.MyLoginListener;
 import com.exercise.p.k_table.R;
 
@@ -91,8 +91,8 @@ public class LoginActivity extends AppCompatActivity implements MyLoginListener 
                 String id = idEdit.getText().toString().trim();
                 String psw = pswEdit.getText().toString().trim();
 
-                LoginModel loginModel = new LoginModel(id,psw,LoginActivity.this);
-                loginModel.run();
+                CourseLoginModel courseLoginModel = new CourseLoginModel(id,psw,LoginActivity.this);
+                courseLoginModel.run();
             }
         });
 
@@ -129,6 +129,11 @@ public class LoginActivity extends AppCompatActivity implements MyLoginListener 
         editor.putBoolean("isLogin",true);
         editor.apply();
         LoginActivity.this.finish();
+    }
+
+    @Override
+    public void showGradeData() {
+
     }
 
     @Override
