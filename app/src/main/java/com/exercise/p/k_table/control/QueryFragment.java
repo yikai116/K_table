@@ -1,30 +1,24 @@
 package com.exercise.p.k_table.control;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.exercise.p.k_table.R;
-import com.exercise.p.k_table.model.Course;
 import com.exercise.p.k_table.model.Exam;
-import com.exercise.p.k_table.model.Global_Info;
+import com.exercise.p.k_table.model.ExamLoginModel;
 import com.exercise.p.k_table.model.Grade;
 import com.exercise.p.k_table.model.GradeLoginModel;
-import com.exercise.p.k_table.model.MyLoginListener;
 import com.exercise.p.k_table.model.MyLoginListener_Query;
 
 import java.util.ArrayList;
@@ -62,19 +56,21 @@ public class QueryFragment extends Fragment implements MyLoginListener_Query{
 
         @Override
         public void onClick (View v){
+            String id = editText_id.getText().toString().trim();
+            String psw = editText_psw.getText().toString().trim();
             switch (v.getId()) {
             case R.id.query_cet:
                 Toast.makeText(getContext(), "CET", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.query_cj:
                 Toast.makeText(getContext(), "Grade", Toast.LENGTH_SHORT).show();
-                String id = editText_id.getText().toString().trim();
-                String psw = editText_psw.getText().toString().trim();
-                GradeLoginModel model = new GradeLoginModel(id,psw,QueryFragment.this);
-                model.run();
+                GradeLoginModel model_grade = new GradeLoginModel(id,psw,QueryFragment.this);
+                model_grade.run();
                 break;
             case R.id.query_exam:
                 Toast.makeText(getContext(), "Exam", Toast.LENGTH_SHORT).show();
+                ExamLoginModel model_exam = new ExamLoginModel(id,psw,QueryFragment.this);
+                model_exam.run();
                 break;
             }
         }
@@ -93,11 +89,25 @@ public class QueryFragment extends Fragment implements MyLoginListener_Query{
     @Override
     public void showGradeData(ArrayList<Grade> grades, String name) {
         Log.i("Query",grades.toString() + name);
+        Intent intent = new Intent();
+        intent.setClass(getActivity(),Query_ResActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("flag","grade");
+        bundle.putSerializable("value",grades);
+        intent.putExtra("info",bundle);
+        startActivity(intent);
     }
 
     @Override
     public void showExamData(ArrayList<Exam> exams, String name) {
         Log.i("Query",exams.toString() + name);
+        Intent intent = new Intent();
+        intent.setClass(getActivity(),Query_ResActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("flag","exam");
+        bundle.putSerializable("value",exams);
+        intent.putExtra("info",bundle);
+        startActivity(intent);
     }
 
     @Override

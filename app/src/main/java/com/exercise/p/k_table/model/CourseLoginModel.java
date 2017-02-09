@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 
 public class CourseLoginModel extends AbstractLogin{
 
-    private String course_data_string = "";
+
     private ArrayList<Course> coursesList;
     private MyLoginListener_Course listener_course;
     public CourseLoginModel(String user_id, String user_psw, MyLoginListener_Course listener) {
@@ -35,6 +35,7 @@ public class CourseLoginModel extends AbstractLogin{
 
 
     private boolean getNeedData(){
+        String course_data_string = "";
         try {
 //            Log.i("Login", cookie);
             URL bxqkb_url = new URL("http://zhjw.scu.edu.cn/xkAction.do?actionType=6");

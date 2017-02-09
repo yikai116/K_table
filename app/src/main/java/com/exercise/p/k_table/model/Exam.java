@@ -1,15 +1,25 @@
 package com.exercise.p.k_table.model;
 
+import java.io.Serializable;
+
 /**
  * Created by p on 2017/2/9.
  */
 
-public class Exam {
+public class Exam implements Serializable {
     private String exam_name;
     private String course_name;
     private String place;
     private String time;
     private String seat;
+
+    public Exam( String exam_name,String course_name,String place,String time,String seat){
+        this.exam_name = exam_name;
+        this.course_name = course_name;
+        this.place = place;
+        this.time = time;
+        this.seat = seat;
+    }
 
     public String getExam_name() {
         return exam_name;

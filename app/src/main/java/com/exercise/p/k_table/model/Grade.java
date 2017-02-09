@@ -1,10 +1,12 @@
 package com.exercise.p.k_table.model;
 
+import java.io.Serializable;
+
 /**
  * Created by p on 2017/2/9.
  */
 
-public class Grade {
+public class Grade implements Serializable {
     private String name;
     private String credit;
     private String type;

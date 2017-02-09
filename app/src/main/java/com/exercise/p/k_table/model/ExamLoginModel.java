@@ -18,18 +18,18 @@ import java.util.regex.Pattern;
  * Created by p on 2017/2/8.
  */
 
-public class GradeLoginModel extends AbstractLogin {
-    private ArrayList<Grade> gradeList;
+public class ExamLoginModel extends AbstractLogin {
+    private ArrayList<Exam> examList;
     private MyLoginListener_Query listener_query;
-    public GradeLoginModel(String user_id, String user_psw, MyLoginListener_Query listener) {
+    public ExamLoginModel(String user_id, String user_psw, MyLoginListener_Query listener) {
         super(user_id, user_psw);
         listener_query = listener;
     }
 
     private boolean getNeedData(){
-        String grade_data_string = "";
+        String exam_data_string = "";
         try {
-            URL bxqcj_url = new URL("http://zhjw.scu.edu.cn/bxqcjcxAction.do");
+            URL bxqcj_url = new URL("http://zhjw.scu.edu.cn/ksApCxAction.do?oper=getKsapXx");
             HttpURLConnection connection = (HttpURLConnection) bxqcj_url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Cookie", cookie);
@@ -40,17 +40,18 @@ public class GradeLoginModel extends AbstractLogin {
             String line;
             boolean isNeed = false;
             while ((line = kb_reader.readLine()) != null) {
+                Log.i("Exam",line);
                 if (isNeed)
-                    grade_data_string += line;
-                else if (line.contains(">成绩"))
+                    exam_data_string += line;
+                else if (line.contains("备注"))
                     isNeed = true;
             }
 
             Pattern pattern = Pattern.compile("&nbsp|\\s|\"|;|\'");
-            Matcher matcher = pattern.matcher(grade_data_string);
-            grade_data_string = matcher.replaceAll("");
+            Matcher matcher = pattern.matcher(exam_data_string);
+            exam_data_string = matcher.replaceAll("");
             connection.disconnect();
-            gradeList = analystGradeData(grade_data_string);
+            examList = analystGradeData(exam_data_string);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return false;
@@ -68,19 +69,19 @@ public class GradeLoginModel extends AbstractLogin {
         return true;
     }
 
-    private ArrayList<Grade> analystGradeData(String string_data){
-        ArrayList<Grade> grades = new ArrayList<>();
-        Pattern pattern_section = Pattern.compile("<trclass=oddonMouseOut=this.className=" +
-                "evenonMouseOver=this.className=evenfocus><tdalign=center>.*?</td><tdalign=" +
-                "center>.*?</td><tdalign=center>(.*?)</td><tdalign=center>.*?</td><tdalign=" +
-                "center>(.*?)</td><tdalign=center>(.*?)</td><tdalign=center>(.*?)</td></tr>");
+    private ArrayList<Exam> analystGradeData(String string_data){
+        Log.i("Exam",string_data);
+        ArrayList<Exam> exams = new ArrayList<>();
+        Pattern pattern_section = Pattern.compile("<trclass=odd><td>(.*?)</td><td>.*?</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>.*?</td><td>.*?</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td></td><td></td></tr>");
         Matcher matcher_section = pattern_section.matcher(string_data);
 
         while (matcher_section.find()) {
-            Grade grade_class_temp = new Grade(matcher_section.group(1),matcher_section.group(2),matcher_section.group(3),matcher_section.group(4));
-            grades.add(grade_class_temp);
+            Exam exam = new Exam(matcher_section.group(1),matcher_section.group(4),
+                    matcher_section.group(2)+matcher_section.group(3),
+                    matcher_section.group(5)+ "\n" + matcher_section.group(6),matcher_section.group(7));
+            exams.add(exam);
         }
-        return grades;
+        return exams;
     }
 
 
@@ -100,7 +101,7 @@ public class GradeLoginModel extends AbstractLogin {
     protected void onPostExecute(final Boolean success) {
         listener_query.closeDialog();
         if (success) {
-            listener_query.showGradeData(gradeList,"某同学" + (user_id.length()>3?user_id.substring(user_id.length()-3):user_id));
+            listener_query.showExamData(examList,"某同学" + (user_id.length()>3?user_id.substring(user_id.length()-3):user_id));
         }
         else if (!internet)
             listener_query.showErrorDialog("网络错误");
