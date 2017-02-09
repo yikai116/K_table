@@ -10,8 +10,6 @@ import java.util.StringTokenizer;
 public interface MyLoginListener{
     void showDialog();
     void closeDialog();
-    void showCourseData(ArrayList<Course> arrayList, String id, String psw);
-    void showGradeData();
     void showErrorDialog(String notice);
     void toastError(String notice);
 }

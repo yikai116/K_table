@@ -21,7 +21,6 @@ import java.util.Map;
 public abstract class AbstractLogin extends AsyncTask<Void,Void,Boolean>{
     String user_id;
     String user_psw;
-    MyLoginListener listener;
     boolean internet = true;
     boolean psw = true;
     String cookie;
@@ -61,10 +60,9 @@ public abstract class AbstractLogin extends AsyncTask<Void,Void,Boolean>{
         }
         return true;
     }
-    AbstractLogin(String user_id, String user_psw, MyLoginListener listener){
+    AbstractLogin(String user_id, String user_psw){
         this.user_id = user_id;
         this.user_psw = user_psw;
-        this.listener = listener;
     }
     public void run(){
         this.execute();

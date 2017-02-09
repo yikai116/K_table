@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +20,12 @@ import android.widget.Toast;
 
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Course;
+import com.exercise.p.k_table.model.Exam;
 import com.exercise.p.k_table.model.Global_Info;
+import com.exercise.p.k_table.model.Grade;
 import com.exercise.p.k_table.model.GradeLoginModel;
 import com.exercise.p.k_table.model.MyLoginListener;
+import com.exercise.p.k_table.model.MyLoginListener_Query;
 
 import java.util.ArrayList;
 
@@ -29,7 +33,7 @@ import java.util.ArrayList;
  * Created by p on 2017/2/3.
  */
 
-public class QueryFragment extends Fragment implements MyLoginListener{
+public class QueryFragment extends Fragment implements MyLoginListener_Query{
     TextView cet;
     TextView grade;
     TextView exam;
@@ -85,14 +89,20 @@ public class QueryFragment extends Fragment implements MyLoginListener{
         progressDialog.dismiss();
     }
 
-    @Override
-    public void showCourseData(ArrayList<Course> arrayList, String id, String psw) {
 
+    @Override
+    public void showGradeData(ArrayList<Grade> grades, String name) {
+        Log.i("Query",grades.toString() + name);
     }
 
     @Override
-    public void showGradeData() {
+    public void showExamData(ArrayList<Exam> exams, String name) {
+        Log.i("Query",exams.toString() + name);
+    }
 
+    @Override
+    public void showCETData(String grade_all, String grade_listen, String grade_read, String grade_write) {
+        Log.i("Query",grade_all + grade_listen + grade_read + grade_write);
     }
 
     @Override

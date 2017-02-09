@@ -27,8 +27,10 @@ public class CourseLoginModel extends AbstractLogin{
 
     private String course_data_string = "";
     private ArrayList<Course> coursesList;
-    public CourseLoginModel(String user_id, String user_psw, MyLoginListener listener) {
-        super(user_id, user_psw, listener);
+    private MyLoginListener_Course listener_course;
+    public CourseLoginModel(String user_id, String user_psw, MyLoginListener_Course listener) {
+        super(user_id, user_psw);
+        listener_course = listener;
     }
 
 
@@ -132,7 +134,7 @@ public class CourseLoginModel extends AbstractLogin{
     protected void onPreExecute() {
         super.onPreExecute();
         Log.i("Login","成功");
-        listener.showDialog();
+        listener_course.showDialog();
     }
 
     @Override
@@ -145,23 +147,23 @@ public class CourseLoginModel extends AbstractLogin{
     @Override
     protected void onPostExecute(final Boolean success) {
         Log.i("Login","成功");
-        listener.closeDialog();
+        listener_course.closeDialog();
         if (success) {
 
-            listener.showCourseData(coursesList,user_id,user_psw);
+            listener_course.showCourseData(coursesList,user_id,user_psw);
             try {
                 MemoryAccess.saveCourseToSD(coursesList);
             } catch (IOException e) {
                 e.printStackTrace();
-                listener.toastError("文件存放错误");
+                listener_course.toastError("文件存放错误");
             }
         }
         else if (!internet)
-            listener.showErrorDialog("网络错误");
+            listener_course.showErrorDialog("网络错误");
         else if (!psw)
-            listener.showErrorDialog("账号或密码错误");
+            listener_course.showErrorDialog("账号或密码错误");
         else
-            listener.showErrorDialog("数据读取错误");
+            listener_course.showErrorDialog("数据读取错误");
     }
 
 }

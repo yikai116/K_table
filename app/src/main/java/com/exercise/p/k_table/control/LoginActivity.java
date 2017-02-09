@@ -19,12 +19,14 @@ import android.widget.Toast;
 import com.exercise.p.k_table.model.Course;
 import com.exercise.p.k_table.model.Global_Info;
 import com.exercise.p.k_table.model.CourseLoginModel;
+import com.exercise.p.k_table.model.Grade;
 import com.exercise.p.k_table.model.MyLoginListener;
 import com.exercise.p.k_table.R;
+import com.exercise.p.k_table.model.MyLoginListener_Course;
 
 import java.util.ArrayList;
 
-public class LoginActivity extends AppCompatActivity implements MyLoginListener {
+public class LoginActivity extends AppCompatActivity implements MyLoginListener_Course {
 
     private ProgressDialog progressDialog;
 
@@ -115,11 +117,6 @@ public class LoginActivity extends AppCompatActivity implements MyLoginListener 
         Global_Info.savaInfo(LoginActivity.this);
         Intent intent = new Intent();
         intent.setClass(LoginActivity.this,MainActivity.class);
-//        ArrayList<String> courseString = new ArrayList<>();
-//        for (Course course : arrayList){
-//            courseString.add(course.toString());
-//        }
-//        intent.putStringArrayListExtra("courses",courseString);
         Bundle bundle = new Bundle();
         bundle.putSerializable("courses",arrayList);
         intent.putExtra("courses",bundle);
@@ -129,11 +126,6 @@ public class LoginActivity extends AppCompatActivity implements MyLoginListener 
         editor.putBoolean("isLogin",true);
         editor.apply();
         LoginActivity.this.finish();
-    }
-
-    @Override
-    public void showGradeData() {
-
     }
 
     @Override
