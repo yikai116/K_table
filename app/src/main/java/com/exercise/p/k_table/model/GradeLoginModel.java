@@ -77,7 +77,8 @@ public class GradeLoginModel extends AbstractLogin {
         Matcher matcher_section = pattern_section.matcher(string_data);
 
         while (matcher_section.find()) {
-            Grade grade_class_temp = new Grade(matcher_section.group(1),matcher_section.group(2),matcher_section.group(3),matcher_section.group(4));
+            Grade grade_class_temp = new Grade(matcher_section.group(1),Integer.valueOf(matcher_section.group(2)),
+                    matcher_section.group(3),Integer.valueOf(matcher_section.group(4)));
             grades.add(grade_class_temp);
         }
         return grades;
@@ -100,7 +101,7 @@ public class GradeLoginModel extends AbstractLogin {
     protected void onPostExecute(final Boolean success) {
         listener_query.closeDialog();
         if (success) {
-            listener_query.showGradeData(gradeList,"某同学" + (user_id.length()>3?user_id.substring(user_id.length()-3):user_id));
+            listener_query.showGradeData(gradeList,"某同学#" + (user_id.length()>3?user_id.substring(user_id.length()-3):user_id) + ":");
         }
         else if (!internet)
             listener_query.showErrorDialog("网络错误");

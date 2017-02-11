@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_course_content_height"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:id="@+id/exam_query_stu_name"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/parting_line"
+        android:background="@color/colorGreyHint"/>
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/data_show_exlist_view"
+        android:groupIndicator="@null"
+        android:childIndicator="@null"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/parting_line"
+        android:background="@color/colorGreyHint"/>
+
+</LinearLayout>

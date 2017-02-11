@@ -134,14 +134,17 @@ public class MainFragment extends Fragment{
 
     public void showCourse(ArrayList<Course> courses, LinearLayout[] container){
         int height = (int)getResources().getDimension(R.dimen.activity_course_content_height);
-
+        int div = (int)getResources().getDimension(R.dimen.activity_course_sleep_noon);
         for (Course course : courses){
             int size = course.getSize();
             int start = course.getStart();
             String name = course.getName();
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams
                 (ViewGroup.LayoutParams.MATCH_PARENT, size * height + size - 1);
-            params.setMargins(0,start * height - height + start - 1,0,0);
+            if (start > 4)
+                params.setMargins(0,start * height - height + start + div ,0,0);
+            else
+                params.setMargins(0,start * height - height + start - 1,0,0);
             LayoutInflater layoutInflater = getActivity().getLayoutInflater();
             View view = layoutInflater.inflate(R.layout.course_view,null);
             TextView textView_name = (TextView) view.findViewById(R.id.course_name);

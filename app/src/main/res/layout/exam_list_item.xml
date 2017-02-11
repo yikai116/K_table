@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.exercise.p.k_table.model.CheckableLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/activity_course_content_height"
+    android:minHeight="@dimen/activity_course_content_height"
+    android:orientation="horizontal"
+    android:background="@color/list_head">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|start"
+        android:layout_weight="3"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingStart="2dp"
+        android:paddingEnd="0dp"
+        android:text="考试名"
+        android:id="@+id/exam_list_item_examName"/>
+    <FrameLayout
+        android:layout_width="@dimen/parting_line"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="课程名"
+        android:id="@+id/exam_list_item_courseName"/>
+    <FrameLayout
+        android:layout_width="@dimen/parting_line"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="地点"
+        android:id="@+id/exam_list_item_place"/>
+    <FrameLayout
+        android:layout_width="@dimen/parting_line"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="时间"
+        android:id="@+id/exam_list_item_time"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="座位号"
+        android:id="@+id/exam_list_item_seat"/>
+</com.exercise.p.k_table.model.CheckableLinearLayout>
+

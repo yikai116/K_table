@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.exercise.p.k_table.model.CheckableLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/activity_course_content_height"
+    android:minHeight="@dimen/activity_course_content_height"
+    android:orientation="horizontal"
+    android:background="@color/list_head">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|start"
+        android:layout_weight="3"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingStart="2dp"
+        android:paddingEnd="0dp"
+        android:text="课程名称"
+        android:id="@+id/grade_list_item_courseName"/>
+    <FrameLayout
+        android:layout_width="@dimen/parting_line"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="学分"
+        android:id="@+id/grade_list_item_credit"/>
+    <FrameLayout
+        android:layout_width="@dimen/parting_line"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="类型"
+        android:id="@+id/grade_list_item_type"/>
+    <FrameLayout
+        android:layout_width="@dimen/parting_line"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="成绩"
+        android:id="@+id/grade_list_item_grade"/>
+</com.exercise.p.k_table.model.CheckableLinearLayout>
+

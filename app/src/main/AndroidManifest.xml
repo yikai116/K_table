@@ -19,10 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".control.LoginActivity">
+        <activity android:name=".control.LoginActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden">
 
         </activity>
-        <activity android:name=".control.MainActivity">
+        <activity android:name=".control.MainActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden">
 
         </activity>
         <activity android:name=".control.Query_ResActivity">

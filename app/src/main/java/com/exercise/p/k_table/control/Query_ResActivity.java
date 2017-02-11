@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Exam;
@@ -28,8 +29,13 @@ public class Query_ResActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.main_color)));
-
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+        actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorWhiteBG)));
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(R.layout.actionbar_custom_view);
+        TextView textView = (TextView) actionBar.getCustomView().findViewById(R.id.actionbar_title);
+        textView.setText("查询结果");
 
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -39,9 +45,10 @@ public class Query_ResActivity extends AppCompatActivity {
         assert flag != null;
         switch (flag){
             case "grade":Log.i("Res","Grade");
-                fragmentTransaction.replace(R.id.layout_show_value,new InfoFragment());
+                fragmentTransaction.replace(R.id.layout_show_value,new Query_GradeFragment());
                 break;
             case "exam":Log.i("Res","Exam");
+                fragmentTransaction.replace(R.id.layout_show_value,new Query_ExamFragment());
                 break;
             case "cet":
                 break;

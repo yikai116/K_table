@@ -12,6 +12,9 @@
     <color name="colorBlue">#4a83e6</color>
     <color name="icon_color">#57000000</color>
     <color name="main_color">#3fb4c2</color>
+    <color name="list_head">#7baaba</color>
+    <color name="list_item_light">#cae6e1</color>
+    <color name="list_item_deep">#b5d4d7</color>
 
     <color name="courseBg1_t">#dc8b94</color>
     <color name="courseBg1">#f87d8a</color>

@@ -78,7 +78,7 @@ public class ExamLoginModel extends AbstractLogin {
         while (matcher_section.find()) {
             Exam exam = new Exam(matcher_section.group(1),matcher_section.group(4),
                     matcher_section.group(2)+matcher_section.group(3),
-                    matcher_section.group(5)+ "\n" + matcher_section.group(6),matcher_section.group(7));
+                    matcher_section.group(5)+ " " + matcher_section.group(6),matcher_section.group(7));
             exams.add(exam);
         }
         return exams;
@@ -101,7 +101,7 @@ public class ExamLoginModel extends AbstractLogin {
     protected void onPostExecute(final Boolean success) {
         listener_query.closeDialog();
         if (success) {
-            listener_query.showExamData(examList,"某同学" + (user_id.length()>3?user_id.substring(user_id.length()-3):user_id));
+            listener_query.showExamData(examList,"某同学#" + (user_id.length()>3?user_id.substring(user_id.length()-3):user_id) + ":");
         }
         else if (!internet)
             listener_query.showErrorDialog("网络错误");

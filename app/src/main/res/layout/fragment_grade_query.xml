@@ -2,9 +2,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_course_content_height"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:id="@+id/grade_query_stu_name"/>
+    <include
+        layout="@layout/grade_list_item"/>
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:choiceMode="multipleChoiceModal"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/data_show_list_view"
+        android:choiceMode="multipleChoice" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/parting_line"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:background="@color/list_item_light">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="全选"
+            android:id="@+id/grade_chooseAll"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/shape_grade_query_choice_button"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="必修"
+            android:id="@+id/grade_chooseRequired"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/shape_grade_query_choice_button"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="计算"
+            android:id="@+id/grade_cal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/shape_grade_query_choice_button"/>
+    </LinearLayout>
 
 </LinearLayout>

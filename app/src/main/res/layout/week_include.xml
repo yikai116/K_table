@@ -13,7 +13,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"/>
             <FrameLayout
@@ -21,7 +21,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint" />
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -30,7 +30,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -39,7 +39,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -48,7 +48,16 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/parting_line"
+                android:background="@color/colorGreyHint"/>
+
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -57,7 +66,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -66,7 +75,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -75,7 +84,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -84,7 +93,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -93,7 +102,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -102,7 +111,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />
@@ -111,7 +120,7 @@
                 android:layout_height="@dimen/parting_line"
                 android:background="@color/colorGreyHint"/>
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_course_content_height"
                 />

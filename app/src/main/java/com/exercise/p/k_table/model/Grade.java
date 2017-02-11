@@ -8,22 +8,50 @@ import java.io.Serializable;
 
 public class Grade implements Serializable {
     private String name;
-    private String credit;
+    private int credit;
     private String type;
-    private String mGrade;
+    private int mGrade;
+    private double GPA;
 
-    public Grade(String name,String credit,String type,String mGrade){
+    public Grade(String name,int credit,String type,int mGrade){
         this.name = name;
         this.credit = credit;
         this.type = type;
         this.mGrade = mGrade;
+        if (mGrade >= 95){
+            GPA = 4.0;
+        }
+        else if (mGrade >= 90){
+            GPA = 3.8;
+        }
+        else if (mGrade >= 85){
+            GPA = 3.6;
+        }
+        else if (mGrade >= 80){
+            GPA = 3.2;
+        }
+        else if (mGrade >= 75){
+            GPA = 2.7;
+        }
+        else if (mGrade >= 70){
+            GPA = 2.2;
+        }
+        else if (mGrade >= 65){
+            GPA = 1.7;
+        }
+        else if (mGrade >=680){
+            GPA = 1;
+        }
+        else {
+            GPA = 0;
+        }
     }
 
-    public String getmGrade() {
+    public int getmGrade() {
         return mGrade;
     }
 
-    public String getCredit() {
+    public int getCredit() {
         return credit;
     }
 
@@ -35,11 +63,15 @@ public class Grade implements Serializable {
         return type;
     }
 
-    public void setCredit(String credit) {
+    public double getGPA() {
+        return GPA;
+    }
+
+    public void setCredit(int credit) {
         this.credit = credit;
     }
 
-    public void setmGrade(String mGrade) {
+    public void setmGrade(int mGrade) {
         this.mGrade = mGrade;
     }
 
@@ -51,8 +83,12 @@ public class Grade implements Serializable {
         this.type = type;
     }
 
+    public void setGPA(double GPA) {
+        this.GPA = GPA;
+    }
+
     @Override
     public String toString() {
-        return name + "_" + credit + "_" + type + "_" + mGrade;
+        return name + "_" + credit + "_" + type + "_" + mGrade + "_" + GPA;
     }
 }
