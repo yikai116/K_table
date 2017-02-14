@@ -5,10 +5,6 @@
     android:gravity="center_vertical"
     android:paddingStart="10dp"
     android:paddingEnd="10dp">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/parting_line"
-        android:background="@color/colorGreyHint"/>
 
     <LinearLayout
         android:layout_width="match_parent"

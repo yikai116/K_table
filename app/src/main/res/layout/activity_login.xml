@@ -9,7 +9,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.exercise.p.k_table.control.LoginActivity"
-    android:background="@color/colorWhiteBG">
+    android:background="@color/login_BG_color_White">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -47,14 +47,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     android:id="@+id/idEdit"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/text_color_Black"
                     android:hint="@string/id_hint"
                     android:textColorHint="@color/colorGreyHint"
                     android:inputType="number"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
                     android:drawablePadding="10dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/text_color_or_bg_White"
                     android:drawableLeft="@drawable/ic_login_id"/>
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -70,8 +70,8 @@
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
                     android:drawablePadding="10dp"
-                    android:textColor="@color/colorBlack"
-                    android:background="@color/colorWhite"
+                    android:textColor="@color/text_color_Black"
+                    android:background="@color/text_color_or_bg_White"
                     android:drawableLeft="@drawable/ic_login_psw"/>
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/showPswCheckBox"
                         android:text="@string/showPsw"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/text_color_Black"
                         android:paddingEnd="10dp"
                         android:paddingStart="0dp"
                         style="@style/Base.Widget.AppCompat.CompoundButton.CheckBox"/>
@@ -123,7 +123,7 @@
                         android:id="@+id/forgetPsw"
                         android:gravity="start"
                         android:text="@string/forgetPsw"
-                        android:textColor="@color/colorBlue"/>
+                        android:textColor="@color/login_activity_text_colorBlue"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -131,7 +131,7 @@
                         android:id="@+id/signUp"
                         android:gravity="end"
                         android:text="@string/signUp"
-                        android:textColor="@color/colorBlue"/>
+                        android:textColor="@color/login_activity_text_colorBlue"/>
 
                 </LinearLayout>
 
@@ -151,14 +151,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/serviceClause"
             android:text="我已阅读并同意"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/text_color_Black"
             android:checked="true" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/showClause"
             android:text="@string/serviceClause"
-            android:textColor="@color/colorBlue"/>
+            android:textColor="@color/login_activity_text_colorBlue"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -1,10 +1,9 @@
 package com.exercise.p.k_table.control;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -16,7 +15,7 @@ import com.exercise.p.k_table.model.MemoryAccess;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends Activity {
 
     private boolean isFirst = true;
     private boolean isLogin = false;
@@ -40,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity {
             isLogin = sharedPreferences.getBoolean("isLogin",false);
             Global_Info.getInfo(WelcomeActivity.this);
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

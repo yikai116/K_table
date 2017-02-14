@@ -32,9 +32,8 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
     public void setChecked(boolean checked) {
         mChecked = checked;
         if (checked)
-            this.setBackgroundColor(getResources().getColor(R.color.courseBg2));
+            this.setBackgroundColor(getResources().getColor(R.color.list_item_checked));
         else {
-//            this.color = 2131427347;
 //            Log.i("Res","unchecked" + this.color);
             this.setBackgroundColor(this.color);
         }
@@ -42,8 +41,6 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
 
     public void setColor(int color) {
         this.color = color;
-//        Log.i("Res","color" + color + "");
-//        Log.i("Res","this.color" + this.color + "");
         setChecked(false);
     }
 

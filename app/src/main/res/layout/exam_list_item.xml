@@ -6,7 +6,7 @@
     android:layout_height="@dimen/activity_course_content_height"
     android:minHeight="@dimen/activity_course_content_height"
     android:orientation="horizontal"
-    android:background="@color/list_head">
+    android:background="@color/grade_and_exam_list_head">
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"

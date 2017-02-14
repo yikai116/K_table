@@ -1,14 +1,13 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:height="1dp">
-        <color android:color="@color/courseBg8_t" />
+        <color android:color="#90eb99d2" />
     </item>
     <item android:top="1dp" >
-        <color android:color="@color/courseBg8_b"/>
+        <color android:color="#90b16199"/>
     </item>
     <item android:top="1dp" android:bottom="1dp">
-        <color android:color="@color/courseBg8"/>
+        <color android:color="#90e477c3"/>
     </item>
-
 
 </layer-list>

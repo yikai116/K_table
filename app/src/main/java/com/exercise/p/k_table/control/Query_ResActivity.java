@@ -30,7 +30,7 @@ public class Query_ResActivity extends AppCompatActivity {
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
-        actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorWhiteBG)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.actionbar_color_white)));
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setCustomView(R.layout.actionbar_custom_view);

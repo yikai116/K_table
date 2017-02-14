@@ -7,9 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,7 +18,6 @@ import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Course;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     QueryFragment queryFragment;
     InfoFragment infoFragment;
     ActionBar actionBar;
-
+    int currentFragment = -1;
     ArrayList<Course> courses;
 
 
@@ -65,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     public void initActionBar(){
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorWhiteBG)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.actionbar_color_white)));
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setCustomView(R.layout.actionbar_custom_view);
         actionBar.setDisplayHomeAsUpEnabled(false);
@@ -102,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout tab3 = (LinearLayout) findViewById(R.id.tab3);
         imageView = (ImageView) tab3.findViewById(R.id.tab_image);
         textView = (TextView) tab3.findViewById(R.id.tab_text);
-        imageView.setImageResource(R.drawable.ic_login_id);
+        imageView.setImageResource(R.drawable.ic_tab3);
         textView.setText("个人");
         tab3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,38 +110,75 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setFragment(int x,Bundle bundle){
+        Log.i("Main","set" + x);
         TextView textView = (TextView) actionBar.getCustomView().findViewById(R.id.actionbar_title);
         fragmentTransaction = fragmentManager.beginTransaction();
         switch (x){
             case 0:
-                if (mainFragment == null){
-                    mainFragment = new MainFragment();
-                    Log.i("MainFragment","new");
-                    mainFragment.setArguments(bundle);
+                if (currentFragment != 0) {
+                    textView.setText("第X周");
+                    if (mainFragment == null) {
+                        mainFragment = new MainFragment();
+                        Log.i("Main", "main new");
+                        mainFragment.setArguments(bundle);
+                    }
+                    hideFragment();
+                    if (!mainFragment.isAdded())
+                        fragmentTransaction.add(R.id.viewPager, mainFragment);
+                    else
+                        fragmentTransaction.show(mainFragment);
+                    currentFragment = 0;
                 }
-                textView.setText("第X周");
-                fragmentTransaction.replace(R.id.viewPager,mainFragment);
                 break;
             case 1:
-                if (queryFragment == null){
-                    queryFragment = new QueryFragment();
-                    Log.i("QueryFragment","new");
-                    queryFragment.setArguments(bundle);
+                if (currentFragment != 1) {
+                    textView.setText("查询");
+                    if (queryFragment == null) {
+                        queryFragment = new QueryFragment();
+                        Log.i("Main", "query new");
+                        queryFragment.setArguments(bundle);
+                    }
+                    hideFragment();
+                    if (!queryFragment.isAdded())
+                        fragmentTransaction.add(R.id.viewPager, queryFragment);
+                    else
+                        fragmentTransaction.show(queryFragment);
+                    currentFragment = 1;
                 }
-                textView.setText("查询");
-                fragmentTransaction.replace(R.id.viewPager,queryFragment);
                 break;
             case 2:
-                if (infoFragment == null){
-                    infoFragment = new InfoFragment();
-                    Log.i("InfoFragment","new");
-                    infoFragment.setArguments(bundle);
+                if (currentFragment != 2) {
+                    textView.setText("个人中心");
+                    if (infoFragment == null) {
+                        infoFragment = new InfoFragment();
+                        Log.i("Main", "info new");
+                        infoFragment.setArguments(bundle);
+                    }
+                    hideFragment();
+                    if (!infoFragment.isAdded())
+                        fragmentTransaction.add(R.id.viewPager, infoFragment);
+                    else
+                        fragmentTransaction.show(infoFragment);
+                    currentFragment = 2;
                 }
-                textView.setText("个人中心");
-                fragmentTransaction.replace(R.id.viewPager,infoFragment);
                 break;
+            default:hideFragment();
         }
         fragmentTransaction.commit();
     }
 
+    private void hideFragment(){
+        Log.i("Main","hide" + currentFragment);
+        switch (currentFragment){
+            case 0:
+                fragmentTransaction.hide(mainFragment);
+                break;
+            case 1:
+                fragmentTransaction.hide(queryFragment);
+                break;
+            case 2:
+                fragmentTransaction.hide(infoFragment);
+                break;
+        }
+    }
 }

@@ -30,6 +30,7 @@ public class MainFragment extends Fragment{
     LinearLayout[] week_context_layouts;
     LinearLayout[] weeks;
     ArrayList<Course> courses;
+    LinearLayout container;
     int[] Bgcolors = {R.drawable.shape_course_1,R.drawable.shape_course_2,R.drawable.shape_course_3,
             R.drawable.shape_course_4,R.drawable.shape_course_5,R.drawable.shape_course_6,
             R.drawable.shape_course_7,R.drawable.shape_course_8,R.drawable.shape_course_9};
@@ -53,7 +54,6 @@ public class MainFragment extends Fragment{
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-//        courses = ((MainActivity) context).getCourses();
         courses = (ArrayList<Course>) getArguments().getSerializable("courses");
     }
 
@@ -75,6 +75,7 @@ public class MainFragment extends Fragment{
         weeks[4] = (LinearLayout) linearLayout_top_week.findViewById(R.id.top_week5);
         weeks[5] = (LinearLayout) linearLayout_top_week.findViewById(R.id.top_week6);
         weeks[6] = (LinearLayout) linearLayout_top_week.findViewById(R.id.top_week7);
+        container = (LinearLayout) view.findViewById(R.id.fragment_main);
         initTime();
     }
     
@@ -134,7 +135,7 @@ public class MainFragment extends Fragment{
 
     public void showCourse(ArrayList<Course> courses, LinearLayout[] container){
         int height = (int)getResources().getDimension(R.dimen.activity_course_content_height);
-        int div = (int)getResources().getDimension(R.dimen.activity_course_sleep_noon);
+//        int div = (int)getResources().getDimension(R.dimen.activity_course_sleep_noon);
         for (Course course : courses){
             int size = course.getSize();
             int start = course.getStart();
@@ -142,7 +143,7 @@ public class MainFragment extends Fragment{
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams
                 (ViewGroup.LayoutParams.MATCH_PARENT, size * height + size - 1);
             if (start > 4)
-                params.setMargins(0,start * height - height + start + div ,0,0);
+                params.setMargins(0,start * height - height + start - 1 ,0,0);
             else
                 params.setMargins(0,start * height - height + start - 1,0,0);
             LayoutInflater layoutInflater = getActivity().getLayoutInflater();
@@ -169,6 +170,7 @@ public class MainFragment extends Fragment{
                 }
             }
             view.setBackground(getResources().getDrawable(Bgcolors[course.getColor()]));
+//            view.setAlpha(0.8f);
             RelativeLayout relativeLayout = (RelativeLayout)(container[course.getDay()-1].findViewById(R.id.include));
             relativeLayout.addView(view,params);
         }

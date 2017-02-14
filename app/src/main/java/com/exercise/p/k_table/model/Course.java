@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
  * Created by p on 2016/10/24.
  */
 public class Course implements Serializable{
+    private static int[] color_using = {0,0,0,0,0,0,0,0,0};
     private String name;
     private int start;
     private int size;
@@ -23,8 +24,18 @@ public class Course implements Serializable{
         this.size = size;
         this.teacher = teacher;
         this.day = day;
-        this.color = new Random().nextInt(9);
-        Log.i("Course",color + "");
+        int sum = 0;
+        for (int i = 0; i < color_using.length; i++){
+            sum += color_using[i];
+        }
+        while (true) {
+            int x = new Random().nextInt(9);
+            if (color_using[x] <= sum / 9) {
+                this.color = x;
+                color_using[x] ++;
+                break;
+            }
+        }
     }
 
     public Course(String s){
