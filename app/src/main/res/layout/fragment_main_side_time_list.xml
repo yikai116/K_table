@@ -13,12 +13,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="8:15"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="1"/>
 
     </LinearLayout>
@@ -37,12 +39,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="9:10"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="2"/>
     </LinearLayout>
     <FrameLayout
@@ -60,12 +64,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="10:15"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="3"/>
     </LinearLayout>
     <FrameLayout
@@ -83,27 +89,20 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="11:10"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="4"/>
     </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/parting_line"
         android:background="@color/colorGreyHint"/>
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="20dp"-->
-        <!--android:gravity="center"-->
-        <!--android:text="午休"/>-->
-    <!--<FrameLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="@dimen/parting_line"-->
-        <!--android:background="@color/colorGreyHint"/>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -115,12 +114,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="13:50"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="5"/>
     </LinearLayout>
     <FrameLayout
@@ -138,12 +139,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="14:45"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="6"/>
     </LinearLayout>
     <FrameLayout
@@ -161,12 +164,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="15:40"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="7"/>
     </LinearLayout>
     <FrameLayout
@@ -184,12 +189,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="16:45"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="8"/>
     </LinearLayout>
     <FrameLayout
@@ -207,12 +214,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="17:40"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="9"/>
     </LinearLayout>
     <FrameLayout
@@ -230,12 +239,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="19:20"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="10"/>
     </LinearLayout>
     <FrameLayout
@@ -253,12 +264,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="20:15"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="11"/>
     </LinearLayout>
     <FrameLayout
@@ -276,12 +289,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="12sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="21:10"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="15sp"
+            android:textColor="@color/button_text_color_gray"
             android:text="12"/>
     </LinearLayout>
     <FrameLayout

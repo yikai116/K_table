@@ -1,5 +1,6 @@
 package com.exercise.p.k_table.model;
 
+import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.util.Log;
 
@@ -37,7 +38,7 @@ public class MemoryAccess {
         writer.close();
     }
 
-    public static ArrayList<String> read() throws IOException {
+    public static ArrayList<String> readCourseFromSD() throws IOException {
         ArrayList<String> courses = new ArrayList<>();
         File sdDir = Environment.getExternalStorageDirectory();
         String myPath = sdDir.getPath() + "/K_table/info.txt";
@@ -52,4 +53,21 @@ public class MemoryAccess {
         reader.close();
         return courses;
     }
+//
+//    public static void saveBGToSD(Drawable drawable) throws IOException {
+//        File sdDir = Environment.getExternalStorageDirectory();
+//        String myPath = sdDir.getPath() + "/K_table";
+//        File myDir = new File(myPath);
+//        if (!myDir.exists()) {
+//            myDir.mkdirs();
+//        }
+//        myPath = myDir.getPath() + "/bg.jpg";
+//        myDir = new File(myPath);
+//        if (!myDir.exists())
+//            myDir.createNewFile();
+//        BufferedWriter writer = new BufferedWriter(new FileWriter(myDir.getPath()));
+//
+//        writer.
+//        writer.close();
+//    }
 }

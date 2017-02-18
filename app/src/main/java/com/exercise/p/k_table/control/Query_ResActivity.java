@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Exam;
+import com.exercise.p.k_table.model.Global_Info;
 import com.exercise.p.k_table.model.Grade;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class Query_ResActivity extends AppCompatActivity {
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
-        actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.actionbar_color_white)));
+        actionBar.setBackgroundDrawable(Global_Info.getTheme_color_drawable());
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setCustomView(R.layout.actionbar_custom_view);

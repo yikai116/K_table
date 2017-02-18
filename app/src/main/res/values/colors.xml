@@ -7,9 +7,10 @@
 
     <color name="login_BG_color_White">#d4ffffff</color>
     <color name="text_color_or_bg_White">#f1ffffff</color>
-    <color name="text_color_or_bg_White_lucency">#63ffffff</color>
+    <color name="text_color_or_bg_White_lucency">#aaffffff</color>
     <color name="main_activity_fragment_whole_BG">#f5eeee</color>
     <color name="colorGreyHint">#dccece</color>
+    <color name="button_text_color_gray">#797070</color>
     <color name="login_activity_text_colorBlue">#4a83e6</color>
     <color name="icon_color_black">#57000000</color>
     <color name="icon_color_blue">#3fb4c2</color>

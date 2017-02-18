@@ -19,8 +19,6 @@ import android.widget.Toast;
 import com.exercise.p.k_table.model.Course;
 import com.exercise.p.k_table.model.Global_Info;
 import com.exercise.p.k_table.model.CourseLoginModel;
-import com.exercise.p.k_table.model.Grade;
-import com.exercise.p.k_table.model.MyLoginListener;
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.MyLoginListener_Course;
 
@@ -114,7 +112,7 @@ public class LoginActivity extends AppCompatActivity implements MyLoginListener_
     public void showCourseData(ArrayList<Course> arrayList, String id, String psw) {
         Global_Info.setUser_id(id);
         Global_Info.setUser_psw(psw);
-        Global_Info.savaInfo(LoginActivity.this);
+        Global_Info.saveInfo(LoginActivity.this);
         Intent intent = new Intent();
         intent.setClass(LoginActivity.this,MainActivity.class);
         Bundle bundle = new Bundle();

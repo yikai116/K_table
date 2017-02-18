@@ -59,7 +59,7 @@ public class WelcomeActivity extends Activity {
             else {
                 ArrayList<String> coursesString = null;
                 try {
-                    coursesString = MemoryAccess.read();
+                    coursesString = MemoryAccess.readCourseFromSD();
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(WelcomeActivity.this, "文件读取错误", Toast.LENGTH_SHORT).show();

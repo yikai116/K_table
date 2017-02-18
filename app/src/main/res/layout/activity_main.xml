@@ -9,7 +9,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/welcome"
+        android:id="@+id/main_bg_view"
+        android:background="@color/text_color_or_bg_White_lucency"
         android:scaleType="centerCrop"/>
 
     <LinearLayout
@@ -30,7 +31,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:alpha="0.8">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

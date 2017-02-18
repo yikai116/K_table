@@ -77,6 +77,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="四六级密码为名字"
+                            android:textColor="@color/button_text_color_gray"
                             android:paddingStart="10dp"
                             android:paddingEnd="0dp"/>
                         <Space
@@ -91,7 +92,8 @@
                             android:textColor="@color/text_color_Black"
                             android:paddingEnd="10dp"
                             android:paddingStart="0dp"
-                            style="@style/Base.Widget.AppCompat.CompoundButton.CheckBox"/>
+                            style="@style/Base.Widget.AppCompat.CompoundButton.CheckBox"
+                            />
                     </LinearLayout>
 
                     <Space

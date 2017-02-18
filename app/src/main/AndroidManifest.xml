@@ -12,7 +12,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".control.WelcomeActivity"
+        <activity
+            android:name=".control.WelcomeActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,19 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".control.LoginActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden">
-
-        </activity>
-        <activity android:name=".control.MainActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:configChanges="orientation|screenSize">
-
-        </activity>
-        <activity android:name=".control.Query_ResActivity"
-            android:configChanges="orientation|screenSize">
-
-        </activity>
+        <activity
+            android:name=".control.LoginActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".control.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".control.Query_ResActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".control.SettingActivity" />
+        <activity android:name=".control.SelectPicActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,8 @@
 package com.exercise.p.k_table.control;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Course;
+import com.exercise.p.k_table.model.Global_Info;
 
 import java.util.ArrayList;
 
@@ -30,11 +33,12 @@ public class MainActivity extends AppCompatActivity {
     ActionBar actionBar;
     int currentFragment = -1;
     ArrayList<Course> courses;
-
+    ImageView bg_view;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bg_view = (ImageView) findViewById(R.id.main_bg_view);
         fragmentManager = getSupportFragmentManager();
         courses = (ArrayList<Course>) getIntent().getBundleExtra("courses").get("courses");
         initActionBar();
@@ -50,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    protected void onResume() {
+        Log.i("Main","Main onResume");
+
+        actionBar.setBackgroundDrawable(Global_Info.getTheme_color_drawable());
+        bg_view.setImageDrawable(Global_Info.getBg_drawable());
+        super.onResume();
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -62,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     public void initActionBar(){
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.actionbar_color_white)));
+        actionBar.setBackgroundDrawable(Global_Info.getTheme_color_drawable());
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setCustomView(R.layout.actionbar_custom_view);
         actionBar.setDisplayHomeAsUpEnabled(false);
@@ -110,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setFragment(int x,Bundle bundle){
-        Log.i("Main","set" + x);
+//        Log.i("Main","set" + x);
         TextView textView = (TextView) actionBar.getCustomView().findViewById(R.id.actionbar_title);
         fragmentTransaction = fragmentManager.beginTransaction();
         switch (x){
@@ -119,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText("第X周");
                     if (mainFragment == null) {
                         mainFragment = new MainFragment();
-                        Log.i("Main", "main new");
+//                        Log.i("Main", "main new");
                         mainFragment.setArguments(bundle);
                     }
                     hideFragment();
@@ -135,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText("查询");
                     if (queryFragment == null) {
                         queryFragment = new QueryFragment();
-                        Log.i("Main", "query new");
+//                        Log.i("Main", "query new");
                         queryFragment.setArguments(bundle);
                     }
                     hideFragment();
@@ -151,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText("个人中心");
                     if (infoFragment == null) {
                         infoFragment = new InfoFragment();
-                        Log.i("Main", "info new");
+//                        Log.i("Main", "info new");
                         infoFragment.setArguments(bundle);
                     }
                     hideFragment();
@@ -168,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void hideFragment(){
-        Log.i("Main","hide" + currentFragment);
+//        Log.i("Main","hide" + currentFragment);
         switch (currentFragment){
             case 0:
                 fragmentTransaction.hide(mainFragment);

@@ -21,7 +21,7 @@
                 android:background="@color/colorGreyHint">
             </FrameLayout>
 
-            <TextView
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -29,6 +29,7 @@
                 android:id="@+id/name"
                 android:textSize="20sp"
                 android:text="我的名字"
+                android:textColor="@color/button_text_color_gray"
                 android:gravity="center_vertical"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
@@ -49,29 +50,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorGreyHint">
-
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:background="@color/text_color_or_bg_White_lucency"
-                android:id="@+id/myFriend"
-                android:textSize="15sp"
-                android:text="我的好友"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="13dp"
-                android:paddingBottom="13dp"
-                android:drawablePadding="10dp"
-                android:clickable="true"
-                android:drawableStart="@drawable/ic_self_friend"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -80,65 +58,7 @@
 
             </FrameLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:background="@color/text_color_or_bg_White_lucency"
-                android:id="@+id/myLike"
-                android:textSize="15sp"
-                android:text="我喜欢的文章"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="13dp"
-                android:paddingBottom="13dp"
-                android:drawablePadding="10dp"
-                android:clickable="true"
-                android:drawableStart="@drawable/ic_self_collect"/>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorGreyHint">
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:background="@color/text_color_or_bg_White_lucency"
-                android:id="@+id/last_read"
-                android:textSize="15sp"
-                android:text="最近浏览"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="13dp"
-                android:paddingBottom="13dp"
-                android:drawablePadding="10dp"
-                android:clickable="true"
-                android:drawableStart="@drawable/ic_self_last"/>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorGreyHint">
-
-            </FrameLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorGreyHint">
-
-            </FrameLayout>
-
-            <TextView
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -146,6 +66,7 @@
                 android:id="@+id/setting"
                 android:textSize="15sp"
                 android:text="设置"
+                android:textColor="@color/button_text_color_gray"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -162,7 +83,32 @@
 
             </FrameLayout>
 
-            <TextView
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@color/text_color_or_bg_White_lucency"
+                android:id="@+id/share"
+                android:textSize="15sp"
+                android:text="分享"
+                android:textColor="@color/button_text_color_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
+                android:drawablePadding="10dp"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_self_share"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorGreyHint">
+
+            </FrameLayout>
+
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -170,6 +116,7 @@
                 android:id="@+id/feedback"
                 android:textSize="15sp"
                 android:text="意见反馈"
+                android:textColor="@color/button_text_color_gray"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
