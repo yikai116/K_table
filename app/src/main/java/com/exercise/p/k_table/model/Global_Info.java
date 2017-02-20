@@ -91,7 +91,7 @@ public class Global_Info {
             user_name = sharedPreferences.getString("user_name","某同学#" + user_id.substring(user_id.length()-3));
         else
             user_name = sharedPreferences.getString("user_name","某同学#" + user_id);
-        BGisColor = sharedPreferences.getBoolean("BGisColor",false);
+        BGisColor = sharedPreferences.getBoolean("BGisColor",true);
         Log.i("Info","read BGisColor  " + BGisColor);
         if (BGisColor)
             BG_color = sharedPreferences.getInt("BG_color",activity.getResources().getColor(R.color.actionbar_color_white));
