@@ -1,8 +1,6 @@
 package com.exercise.p.k_table.control;
 
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Course;
 import com.exercise.p.k_table.model.Global_Info;
@@ -57,9 +56,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         Log.i("Main","Main onResume");
-
-        actionBar.setBackgroundDrawable(Global_Info.getTheme_color_drawable());
-        bg_view.setImageDrawable(Global_Info.getBg_drawable());
+        actionBar.setBackgroundDrawable(new ColorDrawable(Global_Info.getTheme_color()));
+//        Log.i("Info","Main " + Global_Info.getBGisColor());
+        if (Global_Info.getBGisColor()){
+            bg_view.setImageDrawable(new ColorDrawable(Global_Info.getBG_color()));
+        }
+        else {
+//            Glide.with(MainActivity.this)
+//                    .load(Global_Info.getBG_pic())
+//                    .into(bg_view);
+            bg_view.setImageURI(Global_Info.getBG_pic());
+        }
         super.onResume();
     }
 
@@ -74,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     public void initActionBar(){
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setBackgroundDrawable(Global_Info.getTheme_color_drawable());
+        actionBar.setBackgroundDrawable(new ColorDrawable(Global_Info.getTheme_color()));
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setCustomView(R.layout.actionbar_custom_view);
         actionBar.setDisplayHomeAsUpEnabled(false);

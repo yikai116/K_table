@@ -82,6 +82,30 @@
 
             </FrameLayout>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@color/text_color_or_bg_White_lucency"
+                android:id="@+id/default_setting"
+                android:textSize="15sp"
+                android:text="恢复默认设置"
+                android:textColor="@color/button_text_color_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
+                android:drawablePadding="10dp"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_background_pic"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorGreyHint">
+
+            </FrameLayout>
 
         </LinearLayout>
 

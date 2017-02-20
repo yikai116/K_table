@@ -28,6 +28,10 @@ public class WelcomeActivity extends Activity {
         task.execute();
     }
 
+    /**
+     * @author p
+     * 欢迎界面任务
+     */
     protected class WelAsyncTask extends AsyncTask<Void,Void,Integer> {
         SharedPreferences sharedPreferences;
         SharedPreferences.Editor editor;
@@ -49,14 +53,9 @@ public class WelcomeActivity extends Activity {
         @Override
         protected void onPostExecute(Integer integer) {
             super.onPostExecute(integer);
-            //第一次启动，进入引导页
-            if (isFirst){
-                //进入引导页
-                Toast.makeText(WelcomeActivity.this, "进入引导页", Toast.LENGTH_SHORT).show();
-                editor.putBoolean("isFirst",false);
-                editor.apply();
-            }
-            else {
+            if (isLogin){
+                //进入主界面
+//                    Toast.makeText(WelcomeActivity.this, "进入主界面", Toast.LENGTH_SHORT).show();
                 ArrayList<String> coursesString = null;
                 try {
                     coursesString = MemoryAccess.readCourseFromSD();
@@ -65,28 +64,23 @@ public class WelcomeActivity extends Activity {
                     Toast.makeText(WelcomeActivity.this, "文件读取错误", Toast.LENGTH_SHORT).show();
                     isLogin = false;
                 }
-                if (isLogin){
-                    //进入主界面
-                    Global_Info.getInfo(WelcomeActivity.this);
-                    Toast.makeText(WelcomeActivity.this, "进入主界面", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent();
-                    intent.setClass(WelcomeActivity.this,MainActivity.class);
-                    ArrayList<Course> courses = new ArrayList<>();
-                    for (String courseString : coursesString){
-                        courses.add(new Course(courseString));
-                    }
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("courses",courses);
-                    intent.putExtra("courses",bundle);
-                    WelcomeActivity.this.startActivity(intent);
+                Intent intent = new Intent();
+                intent.setClass(WelcomeActivity.this,MainActivity.class);
+                ArrayList<Course> courses = new ArrayList<>();
+                for (String courseString : coursesString){
+                    courses.add(new Course(courseString));
                 }
-                else {
-                    //进入登录界面
-                    Toast.makeText(WelcomeActivity.this, "进入登录界面", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent();
-                    intent.setClass(WelcomeActivity.this,LoginActivity.class);
-                    WelcomeActivity.this.startActivity(intent);
-                }
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("courses",courses);
+                intent.putExtra("courses",bundle);
+                WelcomeActivity.this.startActivity(intent);
+            }
+            else {
+                //进入登录界面
+//                    Toast.makeText(WelcomeActivity.this, "进入登录界面", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(WelcomeActivity.this,LoginActivity.class);
+                WelcomeActivity.this.startActivity(intent);
             }
             WelcomeActivity.this.finish();
         }

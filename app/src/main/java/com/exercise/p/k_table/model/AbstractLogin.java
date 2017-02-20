@@ -24,8 +24,11 @@ public abstract class AbstractLogin extends AsyncTask<Void,Void,Boolean>{
     boolean internet = true;
     boolean psw = true;
     String cookie;
+
+    /**
+     * @return 返回是否登录成功
+     */
     boolean login(){
-//        Log.i("Login",user_id + user_psw);
         try {
             URL login_url = new URL("http://zhjw.scu.edu.cn/loginAction.do");
             HttpURLConnection connection = (HttpURLConnection) login_url.openConnection();
@@ -41,7 +44,6 @@ public abstract class AbstractLogin extends AsyncTask<Void,Void,Boolean>{
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.contains("密码不正确")||line.contains("证件号不存在")){
-//                    Log.i("Login","不正确");
                     psw = false;
                     return false;
                 }
@@ -64,6 +66,10 @@ public abstract class AbstractLogin extends AsyncTask<Void,Void,Boolean>{
         this.user_id = user_id;
         this.user_psw = user_psw;
     }
+
+    /**
+     * 执行异步任务
+     */
     public void run(){
         this.execute();
     }
