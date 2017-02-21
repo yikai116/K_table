@@ -61,7 +61,7 @@ public class SettingActivity extends AppCompatActivity {
                         + r.getResourceEntryName(R.mipmap.bg_pic2)));
                 Global_Info.saveInfo(SettingActivity.this);
                 actionBar.setBackgroundDrawable(new ColorDrawable(Global_Info.getTheme_color()));
-                bg_view.setImageDrawable(getResources().getDrawable(R.mipmap.bg_pic3));
+                bg_view.setImageDrawable(getResources().getDrawable(R.mipmap.bg_pic2));
             }
         });
         bg_view = (ImageView) findViewById(R.id.setting_bg_view);

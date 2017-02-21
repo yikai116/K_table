@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,8 @@ public class SelectPicActivity extends AppCompatActivity {
                         + r.getResourceEntryName(res[position])));
 
                 Toast.makeText(SelectPicActivity.this, "设置成功~", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(SelectPicActivity.this, Global_Info.getBG_pic().toString(), Toast.LENGTH_SHORT).show();
+                Log.i("Select",Global_Info.getBG_pic().toString());
                 Global_Info.saveInfo(SelectPicActivity.this);
                 SelectPicActivity.this.finish();
             }

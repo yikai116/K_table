@@ -59,21 +59,26 @@ public class WelcomeActivity extends Activity {
                 ArrayList<String> coursesString = null;
                 try {
                     coursesString = MemoryAccess.readCourseFromSD();
+                    Intent intent = new Intent();
+                    intent.setClass(WelcomeActivity.this,MainActivity.class);
+                    ArrayList<Course> courses = new ArrayList<>();
+                    for (String courseString : coursesString){
+                        courses.add(new Course(courseString));
+                    }
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("courses",courses);
+                    intent.putExtra("courses",bundle);
+                    WelcomeActivity.this.startActivity(intent);
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(WelcomeActivity.this, "文件读取错误", Toast.LENGTH_SHORT).show();
                     isLogin = false;
+                    editor.putBoolean("isLogin",false);
+                    Intent intent = new Intent();
+                    intent.setClass(WelcomeActivity.this,LoginActivity.class);
+                    WelcomeActivity.this.startActivity(intent);
                 }
-                Intent intent = new Intent();
-                intent.setClass(WelcomeActivity.this,MainActivity.class);
-                ArrayList<Course> courses = new ArrayList<>();
-                for (String courseString : coursesString){
-                    courses.add(new Course(courseString));
-                }
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("courses",courses);
-                intent.putExtra("courses",bundle);
-                WelcomeActivity.this.startActivity(intent);
+
             }
             else {
                 //进入登录界面

@@ -96,7 +96,7 @@ public class Global_Info {
         if (BGisColor)
             BG_color = sharedPreferences.getInt("BG_color",activity.getResources().getColor(R.color.actionbar_color_white));
         else{
-            BG_pic = Uri.parse(sharedPreferences.getString("BG_pic",""));
+            BG_pic = Uri.parse(sharedPreferences.getString("BG_pic","android.resource://com.exercise.p.k_table/mipmap/bg_pic2"));
             Log.i("Info","read BG_pic  path  " + BG_pic.toString());
         }
         theme_color = sharedPreferences.getInt("theme_color",activity.getResources().getColor(R.color.actionbar_color_white));
