@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.exercise.p.k_table.R;
+import com.exercise.p.k_table.model.CET;
+import com.exercise.p.k_table.model.CETLoginModel;
 import com.exercise.p.k_table.model.Exam;
 import com.exercise.p.k_table.model.ExamLoginModel;
 import com.exercise.p.k_table.model.Grade;
@@ -67,14 +69,14 @@ public class QueryFragment extends Fragment implements MyLoginListener_Query{
 
     public class QueryListener implements View.OnClickListener
     {
-
         @Override
         public void onClick (View v){
             String id = editText_id.getText().toString().trim();
             String psw = editText_psw.getText().toString().trim();
             switch (v.getId()) {
             case R.id.query_cet:
-                Toast.makeText(getContext(), "敬请期待~", Toast.LENGTH_SHORT).show();
+                CETLoginModel cetLoginModel = new CETLoginModel(id,psw,QueryFragment.this);
+                cetLoginModel.run();
                 break;
             case R.id.query_cj:
                 GradeLoginModel model_grade = new GradeLoginModel(id,psw,QueryFragment.this);
@@ -125,8 +127,16 @@ public class QueryFragment extends Fragment implements MyLoginListener_Query{
     }
 
     @Override
-    public void showCETData(String grade_all, String grade_listen, String grade_read, String grade_write) {
-        Log.i("Query",grade_all + grade_listen + grade_read + grade_write);
+    public void showCETData(CET cet, String name) {
+        Log.i("Query",cet.toString() + name);
+        Intent intent = new Intent();
+        intent.setClass(getActivity(),Query_ResActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("flag","cet");
+        bundle.putSerializable("value",cet);
+        bundle.putString("name",name);
+        intent.putExtra("info",bundle);
+        startActivity(intent);
     }
 
     @Override

@@ -1,10 +1,12 @@
 package com.exercise.p.k_table.control;
 
+import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.exercise.p.k_table.R;
@@ -152,6 +155,8 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 if (currentFragment != 1) {
                     textView.setText("查询");
+                    AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).setMessage("若要输入中文，请选择显示密码")
+                            .setTitle("提示").setNegativeButton("好~",null).show();
                     if (queryFragment == null) {
                         queryFragment = new QueryFragment();
 //                        Log.i("Main", "query new");

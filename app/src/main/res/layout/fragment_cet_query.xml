@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_course_content_height"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:id="@+id/cet_query_stu_name"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/parting_line"
+        android:background="@color/colorGreyHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_course_content_height"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/cet_query_all"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/parting_line"
+        android:background="@color/colorGreyHint"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_course_content_height"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/cet_query_listen"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/parting_line"
+        android:background="@color/colorGreyHint"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_course_content_height"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/cet_query_read"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/parting_line"
+        android:background="@color/colorGreyHint"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_course_content_height"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/cet_query_write"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/parting_line"
+        android:background="@color/colorGreyHint"/>
+
+</LinearLayout>

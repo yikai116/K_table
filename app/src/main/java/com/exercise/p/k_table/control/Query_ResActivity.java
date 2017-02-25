@@ -52,6 +52,7 @@ public class Query_ResActivity extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.layout_show_value,new Query_ExamFragment());
                 break;
             case "cet":
+                fragmentTransaction.replace(R.id.layout_show_value,new Query_CETFragment());
                 break;
         }
         fragmentTransaction.commit();
