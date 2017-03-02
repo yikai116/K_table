@@ -74,6 +74,7 @@ public class WelcomeActivity extends Activity {
                     Toast.makeText(WelcomeActivity.this, "文件读取错误", Toast.LENGTH_SHORT).show();
                     isLogin = false;
                     editor.putBoolean("isLogin",false);
+                    editor.apply();
                     Intent intent = new Intent();
                     intent.setClass(WelcomeActivity.this,LoginActivity.class);
                     WelcomeActivity.this.startActivity(intent);
