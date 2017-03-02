@@ -41,6 +41,9 @@ public class Query_ResActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
+        /**
+         * 根据传递的信息，判断显示哪一个fragment
+         */
         Bundle bundle = getIntent().getBundleExtra("info");
         String flag = bundle.getString("flag");
         assert flag != null;

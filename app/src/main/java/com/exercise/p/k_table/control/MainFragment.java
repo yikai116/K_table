@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -135,11 +136,9 @@ public class MainFragment extends Fragment{
 
     public void showCourse(ArrayList<Course> courses, LinearLayout[] container){
         int height = (int)getResources().getDimension(R.dimen.activity_course_content_height);
-//        int div = (int)getResources().getDimension(R.dimen.activity_course_sleep_noon);
         for (Course course : courses){
             int size = course.getSize();
             int start = course.getStart();
-            String name = course.getName();
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams
                 (ViewGroup.LayoutParams.MATCH_PARENT, size * height + size - 1);
             if (start > 4)
@@ -147,33 +146,58 @@ public class MainFragment extends Fragment{
             else
                 params.setMargins(0,start * height - height + start - 1,0,0);
             LayoutInflater layoutInflater = getActivity().getLayoutInflater();
-            View view = layoutInflater.inflate(R.layout.course_view,null);
+            final View view = layoutInflater.inflate(R.layout.course_view,null);
             TextView textView_name = (TextView) view.findViewById(R.id.course_name);
             TextView textView_place = (TextView) view.findViewById(R.id.course_place);
-            if (name.contains("@")) {
-                textView_name.setText(name.substring(0, name.indexOf("@")));
-                textView_place.setText(name.substring(name.indexOf("@")));
-                if (size == 1) {
-                    textView_name.setMaxLines(1);
-                }
-                if (size == 2) {
-                    textView_name.setMaxLines(3);
-                }
-                else {
-                    textView_name.setMaxLines(6);
-                }
+            textView_name.setText(course.getName());
+            textView_place.setText(course.getPlace());
+            if (size == 1) {
+                textView_name.setMaxLines(1);
+            }
+            if (size == 2) {
+                textView_name.setMaxLines(3);
             }
             else {
-                textView_name.setText(name);
-                if (size <= 2) {
-                    textView_name.setMaxLines(6);
-                }
+                textView_name.setMaxLines(6);
             }
             view.setBackground(getResources().getDrawable(Bgcolors[course.getColor()]));
-//            view.setAlpha(0.8f);
+            View popup_view = getPopupView(layoutInflater,course);
+            final PopupWindow popupWindow = new PopupWindow(popup_view, ViewGroup.LayoutParams.WRAP_CONTENT, 3*height);
+            popupWindow.setOutsideTouchable(true);
+            popup_view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    popupWindow.dismiss();
+                }
+            });
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i("Main",popupWindow.isShowing() + "");
+                    popupWindow.showAsDropDown(view);
+                }
+            });
             RelativeLayout relativeLayout = (RelativeLayout)(container[course.getDay()-1].findViewById(R.id.include));
             relativeLayout.addView(view,params);
         }
     }
+
+    private View getPopupView(LayoutInflater inflater,Course course){
+        View popup_view = inflater.inflate(R.layout.course_popu_window,null);
+        TextView name = (TextView) popup_view.findViewById(R.id.popup_window_text_name);
+        name.setText("课名：" + course.getName());
+        TextView place = (TextView) popup_view.findViewById(R.id.popup_window_text_place);
+        place.setText("地点：" + course.getPlace());
+        TextView time = (TextView) popup_view.findViewById(R.id.popup_window_text_time);
+        time.setText("时间：" + course.getWeek_of_class());
+        TextView credit = (TextView) popup_view.findViewById(R.id.popup_window_text_credit);
+        credit.setText("学分：" + course.getCredit());
+        TextView type = (TextView) popup_view.findViewById(R.id.popup_window_text_type);
+        type.setText("类型：" + course.getType());
+        TextView teacher = (TextView) popup_view.findViewById(R.id.popup_window_text_teacher);
+        teacher.setText("老师：" + course.getTeacher());
+        return popup_view;
+    }
+
 
 }

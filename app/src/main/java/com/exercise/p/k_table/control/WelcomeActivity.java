@@ -69,7 +69,7 @@ public class WelcomeActivity extends Activity {
                     bundle.putSerializable("courses",courses);
                     intent.putExtra("courses",bundle);
                     WelcomeActivity.this.startActivity(intent);
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(WelcomeActivity.this, "文件读取错误", Toast.LENGTH_SHORT).show();
                     isLogin = false;

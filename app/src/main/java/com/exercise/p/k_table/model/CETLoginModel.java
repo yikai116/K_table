@@ -22,11 +22,21 @@ import java.util.regex.Pattern;
 public class CETLoginModel extends AbstractLogin {
     private CET cet;
     private MyLoginListener_Query listener_query;
+    /**
+     *
+     * @param user_id 账号
+     * @param user_psw 密码
+     * @param listener 回调
+     */
     public CETLoginModel(String user_id, String user_psw, MyLoginListener_Query listener) {
         super(user_id, user_psw);
         listener_query = listener;
     }
 
+    /**
+     * getNeedData 得到相应的数据
+     * @return 返回是否得到成功
+     */
     private boolean getNeedData(){
         String cet_data_string = "";
         try {
@@ -71,6 +81,12 @@ public class CETLoginModel extends AbstractLogin {
         return true;
     }
 
+
+    /**
+     * analystGradeData 在getNeedDate中调用
+     * @param string_data 返回分析数据得到的信息
+     * @return 信息
+     */
     private CET analystGradeData(String string_data){
         Pattern pattern = Pattern.compile("总<spanclass=space></span>分：</th><tdcolspan=2class=fontBold><spanclass=colorRed>(.*?)</span></td>");
         Matcher matcher = pattern.matcher(string_data);

@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements MyLoginListener_
             public void onClick(View v) {
                 String id = idEdit.getText().toString().trim();
                 String psw = pswEdit.getText().toString().trim();
-
+                //启动登录model,传递回调listener
                 CourseLoginModel courseLoginModel = new CourseLoginModel(id,psw,LoginActivity.this);
                 courseLoginModel.run();
             }

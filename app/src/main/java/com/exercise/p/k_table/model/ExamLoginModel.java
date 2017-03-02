@@ -21,11 +21,20 @@ import java.util.regex.Pattern;
 public class ExamLoginModel extends AbstractLogin {
     private ArrayList<Exam> examList;
     private MyLoginListener_Query listener_query;
+    /**
+     *
+     * @param user_id 账号
+     * @param user_psw 密码
+     * @param listener 回调
+     */
     public ExamLoginModel(String user_id, String user_psw, MyLoginListener_Query listener) {
         super(user_id, user_psw);
         listener_query = listener;
     }
-
+    /**
+     * getNeedData 得到相应的数据
+     * @return 返回是否得到成功
+     */
     private boolean getNeedData(){
         String exam_data_string = "";
         try {
@@ -68,7 +77,11 @@ public class ExamLoginModel extends AbstractLogin {
         }
         return true;
     }
-
+    /**
+     * analystGradeData 在getNeedDate中调用
+     * @param string_data 返回分析数据得到的信息
+     * @return 信息
+     */
     private ArrayList<Exam> analystGradeData(String string_data){
         Log.i("Exam",string_data);
         ArrayList<Exam> exams = new ArrayList<>();

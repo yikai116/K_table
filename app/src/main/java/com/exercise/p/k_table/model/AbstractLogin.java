@@ -26,6 +26,7 @@ public abstract class AbstractLogin extends AsyncTask<Void,Void,Boolean>{
     String cookie;
 
     /**
+     * login 默认登录川大教务处
      * @return 返回是否登录成功
      */
     boolean login(){

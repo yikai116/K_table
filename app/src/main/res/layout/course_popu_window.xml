@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c8ffffff"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/popup_window_text_name"
+        android:text="课名："
+        android:textColor="@color/button_text_color_gray"
+        android:gravity="center_vertical"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/popup_window_text_place"
+        android:text="地点"
+        android:textColor="@color/button_text_color_gray"
+        android:gravity="center_vertical"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/popup_window_text_time"
+        android:text="时间"
+        android:textColor="@color/button_text_color_gray"
+        android:gravity="center_vertical"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/popup_window_text_credit"
+        android:text="学分"
+        android:textColor="@color/button_text_color_gray"
+        android:gravity="center_vertical"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/popup_window_text_type"
+        android:text="类型"
+        android:textColor="@color/button_text_color_gray"
+        android:gravity="center_vertical"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/popup_window_text_teacher"
+        android:text="老师"
+        android:textColor="@color/button_text_color_gray"
+        android:gravity="center_vertical"/>
+
+</LinearLayout>

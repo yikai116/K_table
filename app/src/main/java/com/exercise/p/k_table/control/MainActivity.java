@@ -1,12 +1,10 @@
 package com.exercise.p.k_table.control;
 
-import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -15,9 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.exercise.p.k_table.R;
 import com.exercise.p.k_table.model.Course;
 import com.exercise.p.k_table.model.Global_Info;
@@ -56,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    /*
+    * 设置背景等信息
+    */
     @Override
     protected void onResume() {
         Log.i("Main","Main onResume");
@@ -93,6 +92,10 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setLogo(getResources().getDrawable(R.drawable.ic_logo_small));
     }
 
+    /**
+     * initTabView 设置底部导航按键功能
+     * @return 没有返回值
+     */
     public void initTabView() {
         LinearLayout tab1 = (LinearLayout) findViewById(R.id.tab1);
         ImageView imageView = (ImageView) tab1.findViewById(R.id.tab_image);
@@ -131,6 +134,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * setFragment 设置显示的fragment
+     * @param x fragment对应的数值
+     * @param bundle 传递的数据
+     */
     public void setFragment(int x,Bundle bundle){
 //        Log.i("Main","set" + x);
         TextView textView = (TextView) actionBar.getCustomView().findViewById(R.id.actionbar_title);
@@ -155,8 +163,6 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 if (currentFragment != 1) {
                     textView.setText("查询");
-                    AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).setMessage("若要输入中文，请选择显示密码")
-                            .setTitle("提示").setNegativeButton("好~",null).show();
                     if (queryFragment == null) {
                         queryFragment = new QueryFragment();
 //                        Log.i("Main", "query new");
@@ -191,6 +197,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+    /**
+     * hideFragment 隐藏正在显示的fragment
+     */
     private void hideFragment(){
 //        Log.i("Main","hide" + currentFragment);
         switch (currentFragment){

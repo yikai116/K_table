@@ -64,6 +64,8 @@ public class QueryFragment extends Fragment implements MyLoginListener_Query{
                     editText_psw.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
             }
         });
+        AlertDialog dialog = new AlertDialog.Builder(getContext()).setMessage("若要输入中文，请选择显示密码")
+                .setTitle("提示").setNegativeButton("好~",null).show();
         return view;
     }
 

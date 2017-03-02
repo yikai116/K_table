@@ -70,6 +70,9 @@ public class Query_GradeFragment extends Fragment {
         listView.setAdapter(adapter);
     }
 
+    /**
+     * initButton 初始化底部按钮
+     */
     private void initButton(){
         button_chooseAll.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -17,13 +17,21 @@ public class Course implements Serializable{
     private String teacher;
     private int day;
     private int color;
+    private String type;
+    private String week_of_class;
+    private float credit;
+    private String place;
 
-    public Course(String name, int start, int size, String teacher, int day){
+    public Course(String name, int start, int size, String teacher, int day, String place, String type, String week_of_class, float credit){
         this.name = name;
         this.start = start;
         this.size = size;
         this.teacher = teacher;
         this.day = day;
+        this.place = place;
+        this.type = type;
+        this.week_of_class = week_of_class;
+        this.credit = credit;
         int sum = 0;
         for (int i = 0; i < color_using.length; i++){
             sum += color_using[i];
@@ -45,6 +53,10 @@ public class Course implements Serializable{
         this.size = Integer.valueOf(stringTokenizer.nextToken());
         this.teacher = stringTokenizer.nextToken();
         this.day = Integer.valueOf(stringTokenizer.nextToken());
+        this.place = stringTokenizer.nextToken();
+        this.type = stringTokenizer.nextToken();
+        this.credit = Float.valueOf(stringTokenizer.nextToken());
+        this.week_of_class = stringTokenizer.nextToken();
         this.color = Integer.valueOf(stringTokenizer.nextToken());
     }
 
@@ -88,8 +100,48 @@ public class Course implements Serializable{
         this.color = color;
     }
 
+    public float getCredit() {
+        return credit;
+    }
+
+    public void setCredit(float credit) {
+        this.credit = credit;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getWeek_of_class() {
+        return week_of_class;
+    }
+
+    public void setWeek_of_class(String week_of_class) {
+        this.week_of_class = week_of_class;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
     public String toString(){
-        return name + "," + start + "," + size + "," + teacher + "," + day + "," + color;
+        return name + "," + start + "," + size + "," + teacher + "," + day + "," + place + "," + type + "," + credit + "," + week_of_class + "," + color;
     }
 
 }
